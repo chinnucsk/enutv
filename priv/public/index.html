@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html ng-app="nultvApp">
+  <head>
+    <meta charset="utf-8"/>
+    <title>NulTV</title>
+    <meta name="description" content=""/>
+    <meta name="keywords" content="nultv, nul, tv, public, video clips, post, videoblog, community site, videos, clips, online news, america news, news america"/>
+    <link rel="shortcut icon" href="/images/favicon.ico"/>
+    <link href="/css/style.css" rel="stylesheet" type="text/css"/>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="/js/angular.min.js"></script>
+    <script src="/js/controllers.js"></script>
+    <script src="/players/flowplayer/flowplayer-3.2.12.min.js"></script>
+  </head>
+  <body ng-controller="NultvHome" ng-cloak>
+    <div class="container">
+      <div class="navgation">
+        <nav>
+          <a href="#"><span>Now!</span></a>
+          <span class="separator"></span>
+          <a href="#" class="active"><span>News</span></a>
+          <span class="separator"></span>
+          <a href="#"><span>Entertainment</span></a>
+          <span class="separator"></span>
+          <a href="#"><span>Finance</span></a>
+          <span class="separator"></span>
+          <a href="#"><span>Lifestyle</span></a>
+          <span class="separator"></span>
+          <a href="#"><span>Local</span></a>
+          <span class="separator"></span>
+          <a href="#"><span>Live</span></a>
+        </nav>
+        <!-- <div class="navright">
+          <a href="#" class="login">Login</a>
+          <span class="separator"></span>
+          <a href="#" class="signup">Sign Up</a>
+        </div> -->
+      </div>
+      <!--Navgation End-->
+
+      <header>
+        <span class="logo"><img src="/images/nultv-logo.png"/></span>
+        <!-- <div class="right">
+          <div class="row pullright">Welcome Guest</div>
+          <div class="searcharea">
+            <input type="text" name="" placeholder="Search..."/>
+            <input type="Submit" name="" class="search-btn"/>
+          </div>
+        </div> -->
+      </header>
+      <!--Header End-->
+
+      <div class="banner">
+        <img src="/images/topbanner.jpg"/>
+      </div>
+      <!--banner End-->
+
+      <article>
+        <aside class="width67">
+          <div class="slideshow">
+            <div class="width60">
+              <div class="video">
+                <div id="videoplayer" class="hiro"></div>
+              </div>
+            </div>
+            <div class="slideshow-content width40">
+              <div class="slideshow-title">{{latestVideo.value.title}}</div>
+              <p>{{latestVideo.value.description}}</p>
+            </div>
+          </div>
+          <!--Slideshow Videos End-->
+
+          <div class="clear"></div>
+
+          <div class="module">
+            <div class="module-title">Trending Videos</div>
+            <div class="module-inner paddingR_o">
+              <div class="trending-videos">
+
+                <div class="width50" ng-repeat="lvid in trendingVideos">
+                  <span class="gallerythumb">
+                    <a ng-href="http://speakglobally.net/v/{{lvid.value._id}}">
+                      <img ng-src="http://876490ded624fedbbf8f-2529efbed00bf302a12a4cac23251cd4.r64.cf2.rackcdn.com/{{lvid.value.thumbs_path}}"/>
+                      <img class="play" src="/images/play-icon.png">
+                      <p class="duration small ng-binding">{{lvid.value.duration}} s</p>
+                    </a>
+                  </span>
+                  <span>
+                    <p>{{lvid.value.title}} <span class="small">--{{lvid.value.source}}</span></p>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--Trending Videos End-->
+
+          <div class="module">
+            <div class="module-title">Huffpost live</div>
+            <div class="livevideo">
+              <a style="display:block;width:648px;height:360px;" id="bigplayer"></a>
+            </div>
+          </div>
+          <!--Huffpost live End-->
+
+          <div class="module">
+            <div class="module-title">World News</div>
+            <div class="module-inner">
+              <div class="row divider" ng-repeat="n in top5">
+                <a class="news" ng-href="/n/{{n.value.id}}">{{n.value.title}}</a>
+              </div>
+              <a class="more" href="http://wildridge.net/">More World News</a>
+            </div>
+          </div>
+          <!--World News End-->
+
+          <div class="module">
+            <div class="module-title">Weird News</div>
+            <div class="module-inner">
+              <div class="row divider" ng-repeat="n in top5">
+                <a class="news" ng-href="/n/{{n.value.id}}">{{n.value.title}}</a>
+              </div>
+              <a class="more" href="http://wildridge.net/">More Weird News</a>
+            </div>
+          </div>
+          <!--Weird News End-->
+
+          <div class="module">
+            <div class="module-title">Around The Web</div>
+            <div class="module-inner">
+              <div class="row divider" ng-repeat="n in top5">
+                <a class="news" ng-href="/n/{{n.value.id}}">{{n.value.title}}</a>
+              </div>
+              <a class="more" href="http://wildridge.net/">More News</a>
+            </div>
+          </div>
+          <!--AROUND THE WEB End-->
+        </aside>
+
+        <aside class="width30 margin20_L">
+          <div class="rt-tpadd">
+            <img src="/images/Rightside-add.jpg"/>
+          </div>
+          <div class="module margin20_T">
+            <div class="module-title">Top News</div>
+            <div class="module-inner">
+              <div class="videorow">
+                <span class="thumb">
+                  <img src="/images/thumb-big-1.jpg"/>
+                </span>
+                <span>
+                  <p>Bob Filner Recall Campaign Begins Amid Sexual Harassment Allegations</p>
+                </span>
+              </div>
+              <div class="videorow">
+                <span class="thumb">
+                  <img src="/images/thumb-big-2.jpg"/>
+                </span>
+                <span>
+                  <p>Secret Guantanamo Camp To Be Challenged By 9/11 Lawyer</p>
+                </span>
+              </div>
+              <div class="videorow">
+                <span class="thumb">
+                  <img src="/images/thumb-big-1.jpg"/>
+                </span>
+                <span>
+                  <p>Bob Filner Recall Campaign Begins Amid Sexual Harassment Allegations</p>
+                </span>
+              </div>
+              <div class="videorow">
+                <span class="thumb">
+                  <img src="/images/thumb-big-2.jpg"/>
+                </span>
+                <span>
+                  <p>Secret Guantanamo Camp To Be Challenged By 9/11 Lawyer</p>
+                </span>
+              </div>
+              <div class="videorow">
+                <span class="thumb">
+                  <img src="/images/thumb-big-1.jpg"/>
+                </span>
+                <span>
+                  <p>Bob Filner Recall Campaign Begins Amid Sexual Harassment Allegations</p>
+                </span>
+              </div>
+              <div class="videorow">
+                <a href="#" class="more right">More Videos</a>
+              </div>
+            </div>
+          </div>
+          <!--Top News End-->
+
+          <div class="rt-btadd margin20_T">
+            <img src="/images/Rightside-add2.jpg"/>
+          </div>
+          <!-- <div class="module twitterposts">
+            <div class="module-title">Twitter on the news</div>
+            <div class="module-inner width40">
+              <div class="row devider twitter-cont">
+                <p><img src="/images/small-thumb1.jpg"/></p>
+                <p><strong class="blue">Rob Fee@</strong>robfee</p>
+                <p>I wish every episode of Breaking Bad started with the cast playing in a fountain like on Friends.</p>
+                <p class="gray margin20_T small"><img src="/images/twitter-small.png" align="absmiddle"/> 7:35 AM - 19 Aug 13</p>
+                <p class="gray small"><img src="/images/reply.png" align="absmiddle"/> Reply <span class="right"><img src="/images/retweet.png" align="absmiddle"/> Retweet</span></p>
+                <p class="gray small"><img src="/images/favorite.png" align="absmiddle"/> Favorite</p>
+              </div>
+              <div class="row devider twitter-cont">
+                <p><img src="/images/small-thumb1.jpg"/></p>
+                <p><strong class="blue">Rob Fee@</strong>robfee</p>
+                <p>I wish every episode of Breaking Bad started with the cast playing in a fountain like on Friends.</p>
+                <p class="gray margin20_T small"><img src="/images/twitter-small.png" align="absmiddle"/> 7:35 AM - 19 Aug 13</p>
+                <p class="gray small"><img src="/images/reply.png" align="absmiddle"/> Reply <span class="right"><img src="/images/retweet.png" align="absmiddle"/> Retweet</span></p>
+                <p class="gray small"><img src="/images/favorite.png" align="absmiddle"/> Favorite</p>
+              </div>
+            </div>
+            <div class="width50 twitterAdd">
+              <img src="/images/twitterAdd.jpg"/>
+            </div>
+          </div> -->
+          <!--Twitter on the news End-->
+
+          <div class="clear"></div>
+
+          <div class="module popular">
+            <div class="module-title">Popular Stories</div>
+            <div class="module-inner">
+
+              <div class="row videorow" ng-repeat="lvid in latestVideos">
+                <span class="width40">
+                  <a ng-href="http://speakglobally.net/v/{{lvid.value[0]}}">
+                    <img ng-src="http://876490ded624fedbbf8f-2529efbed00bf302a12a4cac23251cd4.r64.cf2.rackcdn.com/{{lvid.value[2]}}" width="97" height="75"/>
+                    <img class="smallplay" src="/images/play-icon.png">
+                  </a>
+                </span>
+                <span class="width60">
+                  <p><a ng-href="http://speakglobally.net/v/{{lvid.value[0]}}">{{lvid.value[1]}}</a></p>
+                </span>
+              </div>
+              <a href="http://speakglobally.net" class="more">More Stories</a>
+            </div>
+          </div>
+          <!--Popular Stories End-->
+        </aside>
+      </article>
+      <!--Article End-->
+
+      <div class="banner">
+        <img src="/images/Bottom-add.jpg"/>
+      </div>
+      <!--Bottom-add End-->
+    </div>
+
+    <footer>
+      <div class="container">
+        <summary>
+          <span class="left">
+            Copyright &copy;  2013  Logo Name. All Rights Reserved |
+            <a href="#">My Account</a>.
+          </span>
+          <span class="right">
+            <span class="left margin5">Follow Us on:</span>
+            <a href="#"><img src="/images/twitter.png"/></a>
+            <a href="#"><img src="/images/facebook.png"/></a>
+            <a href="#"><img src="/images/google.png"/></a>
+            <a href="#"><img src="/images/linkdedin.png"/></a>
+          </span>
+        </summary>
+      </div>
+    </footer>
+    <!--Footer End-->
+    <script language="JavaScript">
+      flowplayer('bigplayer', '/players/flowplayer/flowplayer-3.2.16.swf', {
+        // This will enable pseudostreaming support
+        plugins: {
+          pseudo: {
+            url: 'http://releases.flowplayer.org/swf/flowplayer.pseudostreaming-3.2.12.swf'
+          }
+        },
+        // Clip properties
+        clip: {
+            url: 'http://91cefb89b61292d7a6a5-9b3e53ad93e76fa27450765a72dfcdf1.r61.cf2.rackcdn.com/2013-09-17T043612Z_1_LOVE98G0CSBPP_RTRMADV_STREAM-700-16X9-MP4_ITALY-CONCORDIA-MISSION-COMPLETE-O.MP4',
+            autoPlay: false,
+            autoBuffering: true,
+            provider: 'pseudo'
+          }
+        });
+    </script>
+    <script>
+      window.hiro = {
+        externalID:'Ybrant-US-Wildridge',
+        subExternalID: '${PUBLISHER_ID}',
+        width: 300,
+        height: 250,
+        player: 'videoplayer',
+        scale_start : 1,
+        scale_hover : 1,
+        scale_off_hover: 1,
+        lob_start: 0.8,
+        lob_hover: 0.8,
+        lob_off_hover: 0.8,
+        noPrerollUserInitiate : false,
+        userInitiate: false,
+        Flowplayer_License_key:'#$81471f529599f62f27e',
+        splashImg : 'http://videos.hiro.co.il/demo_clips/splash_image.png',
+        playImg : 'http://software.hiro.tv/User_initiate/play_large.png',
+        playList: [{
+          url: '',
+          customProperties: {
+            videoTitle : '',
+            videoDescription : '',
+            videoKeyWords : '',
+            videoTags : '',
+            videoDurationSecs : ''
+          }
+        }]
+      };
+    </script>
+    <script src="http://tag.ybrant.hiro.tv/premium/scripts/hiro_dynamic_player.js?config=conf1"></script>
+  </body>
+</html>
