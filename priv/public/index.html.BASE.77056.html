@@ -7,12 +7,10 @@
     <meta name="keywords" content="nultv, nul, tv, public, video clips, post, videoblog, community site, videos, clips, online news, america news, news america"/>
     <link rel="shortcut icon" href="/images/favicon.ico"/>
     <link href="/css/style.css" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" type="text/css" href="http://vjs.zencdn.net/4.1/video-js.css">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script src="/js/angular.min.js"></script>
     <script src="/js/controllers.js"></script>
-    <script type='text/javascript' src="http://vjs.zencdn.net/4.1/video.js"></script>
-    <!--<script src="/players/flowplayer/flowplayer-3.2.12.min.js"></script> -->
+    <script src="/players/flowplayer/flowplayer-3.2.12.min.js"></script>
   </head>
   <body ng-controller="NultvHome" ng-cloak>
     <div class="container">
@@ -62,12 +60,7 @@
           <div class="slideshow">
             <div class="width60">
               <div class="video">
-                <!-- <div id="videoplayer" class="hiro"></div> -->
-                <video id="bannerVideo" class="video-js vjs-default-skin" controls
-                        preload="auto" width="99%" height="235px" poster="" data-setup='{}'
-                       ng-src="{{ homeVideoEmbedPath }}" type='video/mp4'>
-                       <source type="video/mp4" />
-              </video>
+                <div id="videoplayer" class="hiro"></div>
               </div>
             </div>
             <div class="slideshow-content width40">
@@ -86,14 +79,14 @@
 
                 <div class="width50" ng-repeat="lvid in trendingVideos">
                   <span class="gallerythumb">
-                    <a ng-href="http://speakglobally.net/v/{{lvid.value[0]}}">
-                      <img ng-src="http://876490ded624fedbbf8f-2529efbed00bf302a12a4cac23251cd4.r64.cf2.rackcdn.com/{{lvid.value[2]}}"/>
+                    <a ng-href="http://speakglobally.net/v/{{lvid.value._id}}">
+                      <img ng-src="http://876490ded624fedbbf8f-2529efbed00bf302a12a4cac23251cd4.r64.cf2.rackcdn.com/{{lvid.value.thumbs_path}}"/>
                       <img class="play" src="/images/play-icon.png">
-                      <p class="duration small ng-binding">{{lvid.value[4]}} s</p>
+                      <p class="duration small ng-binding">{{lvid.value.duration}} s</p>
                     </a>
                   </span>
                   <span>
-                    <p>{{lvid.value[1]}} <span class="small">--Reuters</span></p>
+                    <p>{{lvid.value.title}} <span class="small">--{{lvid.value.source}}</span></p>
                   </span>
                 </div>
               </div>
@@ -102,20 +95,14 @@
           <!--Trending Videos End-->
 
           <div class="module">
-            <div class="module-title">Featured Video</div>
-            <!-- <div class="livevideo">
+            <div class="module-title">Huffpost live</div>
+            <div class="livevideo">
               <a style="display:block;width:648px;height:360px;" id="bigplayer"></a>
             </div>
-          </div> -->
-          <video id="featuredVideo" class="video-js vjs-default-skin" controls
-                          preload="auto" width="650" height="359" poster="" data-setup='{}'
-                         ng-src="{{ featuredVideoEmbedPath }}" type='video/mp4'>
-                         <source type="video/mp4" />
-              </video>
-              <span class="featured-video-title">{{ featuredVideoTitle}} ({{featuredVideoDuration}} sec)</span>
-          <!--Featured End-->
+          </div>
+          <!--Huffpost live End-->
 
-         <!--  <div class="module">
+          <div class="module">
             <div class="module-title">World News</div>
             <div class="module-inner">
               <div class="row divider" ng-repeat="n in top5">
@@ -124,7 +111,7 @@
               <a class="more" href="http://wildridge.net/">More World News</a>
             </div>
           </div>
-          World News End
+          <!--World News End-->
 
           <div class="module">
             <div class="module-title">Weird News</div>
@@ -134,7 +121,7 @@
               </div>
               <a class="more" href="http://wildridge.net/">More Weird News</a>
             </div>
-          </div> -->
+          </div>
           <!--Weird News End-->
 
           <div class="module">
@@ -156,15 +143,46 @@
           <div class="module margin20_T">
             <div class="module-title">Top News</div>
             <div class="module-inner">
-              <div class="videorow" ng-repeat="ng in topNewsAndGraphics">
+              <div class="videorow">
                 <span class="thumb">
-                  <img ng-src="http://876490ded624fedbbf8f-2529efbed00bf302a12a4cac23251cd4.r64.cf2.rackcdn.com/{{ ng.value.thumbnail }}"/>
+                  <img src="/images/thumb-big-1.jpg"/>
                 </span>
                 <span>
-                  <p>{{ ng.value.title }}</p>
+                  <p>Bob Filner Recall Campaign Begins Amid Sexual Harassment Allegations</p>
                 </span>
               </div>
-              
+              <div class="videorow">
+                <span class="thumb">
+                  <img src="/images/thumb-big-2.jpg"/>
+                </span>
+                <span>
+                  <p>Secret Guantanamo Camp To Be Challenged By 9/11 Lawyer</p>
+                </span>
+              </div>
+              <div class="videorow">
+                <span class="thumb">
+                  <img src="/images/thumb-big-1.jpg"/>
+                </span>
+                <span>
+                  <p>Bob Filner Recall Campaign Begins Amid Sexual Harassment Allegations</p>
+                </span>
+              </div>
+              <div class="videorow">
+                <span class="thumb">
+                  <img src="/images/thumb-big-2.jpg"/>
+                </span>
+                <span>
+                  <p>Secret Guantanamo Camp To Be Challenged By 9/11 Lawyer</p>
+                </span>
+              </div>
+              <div class="videorow">
+                <span class="thumb">
+                  <img src="/images/thumb-big-1.jpg"/>
+                </span>
+                <span>
+                  <p>Bob Filner Recall Campaign Begins Amid Sexual Harassment Allegations</p>
+                </span>
+              </div>
               <div class="videorow">
                 <a href="#" class="more right">More Videos</a>
               </div>
@@ -204,7 +222,7 @@
           <div class="clear"></div>
 
           <div class="module popular">
-            <div class="module-title">Latest Videos</div>
+            <div class="module-title">Popular Stories</div>
             <div class="module-inner">
 
               <div class="row videorow" ng-repeat="lvid in latestVideos">
@@ -250,7 +268,6 @@
       </div>
     </footer>
     <!--Footer End-->
-    <!--
     <script language="JavaScript">
       flowplayer('bigplayer', '/players/flowplayer/flowplayer-3.2.16.swf', {
         // This will enable pseudostreaming support
@@ -298,6 +315,6 @@
         }]
       };
     </script>
-    <script src="http://tag.ybrant.hiro.tv/premium/scripts/hiro_dynamic_player.js?config=conf1"></script> -->
+    <script src="http://tag.ybrant.hiro.tv/premium/scripts/hiro_dynamic_player.js?config=conf1"></script>
   </body>
 </html>

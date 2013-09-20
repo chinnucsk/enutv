@@ -119,7 +119,7 @@
             <div class="module-title">World News</div>
             <div class="module-inner">
               <div class="row divider" ng-repeat="n in top5">
-                <a class="news" ng-href="/n/{{n.value.id}}">{{n.value.title}}</a>
+                <a class="news" ng-href="http://wildridge.net/n/{{n.value.id}}">{{n.value.title}}</a>
               </div>
               <a class="more" href="http://wildridge.net/">More World News</a>
             </div>
@@ -130,7 +130,7 @@
             <div class="module-title">Weird News</div>
             <div class="module-inner">
               <div class="row divider" ng-repeat="n in top5">
-                <a class="news" ng-href="/n/{{n.value.id}}">{{n.value.title}}</a>
+                <a class="news" ng-href="http://wildridge.net/n/{{n.value.id}}">{{n.value.title}}</a>
               </div>
               <a class="more" href="http://wildridge.net/">More Weird News</a>
             </div>
@@ -141,7 +141,7 @@
             <div class="module-title">Around The Web</div>
             <div class="module-inner">
               <div class="row divider" ng-repeat="n in top5">
-                <a class="news" ng-href="/n/{{n.value.id}}">{{n.value.title}}</a>
+                <a class="news" ng-href="http://wildridge.net/n/{{n.value.id}}">{{n.value.title}}</a>
               </div>
               <a class="more" href="http://wildridge.net/">More News</a>
             </div>
@@ -153,20 +153,39 @@
           <div class="rt-tpadd">
             <img src="/images/Rightside-add.jpg"/>
           </div>
-          <div class="module margin20_T">
+          <div class="module RgtTopNews margin20_T">
             <div class="module-title">Top News</div>
             <div class="module-inner">
+<<<<<<< HEAD
               <div class="videorow" ng-repeat="ng in topNewsAndGraphics">
+=======
+
+              <div class="videorow" ng-repeat="n in topNewsAndGraphics">
+                <div class="news-item">
+                  <img class="news-graphic" ng-src="http://cdee2b9f4d70bbbec792-dc1168873264971973cbf6ea4d0b36c7.r91.cf2.rackcdn.com/{{n.value.thumbnail}}"/>
+                  <p>{{n.value.title}}</p>
+                </div>
+              </div>
+
+              <!-- <div class="videorow">
+>>>>>>> 74f842d78ff0a151a8c5c8ab8d1f9859f93b3e3f
                 <span class="thumb">
-                  <img ng-src="http://876490ded624fedbbf8f-2529efbed00bf302a12a4cac23251cd4.r64.cf2.rackcdn.com/{{ ng.value.thumbnail }}"/>
+                  <img ng-src="http://cdee2b9f4d70bbbec792-dc1168873264971973cbf6ea4d0b36c7.r91.cf2.rackcdn.com/{{ ng.value.thumbnail }}"/>
                 </span>
                 <span>
                   <p>{{ ng.value.title }}</p>
                 </span>
+<<<<<<< HEAD
               </div>
               
               <div class="videorow">
-                <a href="#" class="more right">More Videos</a>
+                <!-- <a href="#" class="more right">More Videos</a> -->
+=======
+              </div> -->
+
+              <div class="videorow">
+                <a href="http://wildridge.net/" class="more right">More Videos</a>
+>>>>>>> 74f842d78ff0a151a8c5c8ab8d1f9859f93b3e3f
               </div>
             </div>
           </div>
@@ -221,7 +240,7 @@
               <a href="http://speakglobally.net" class="more">More Stories</a>
             </div>
           </div>
-          <!--Popular Stories End-->
+          <!-- Popular Stories End -->
         </aside>
       </article>
       <!--Article End-->
