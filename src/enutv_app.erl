@@ -13,7 +13,7 @@ start(_StartType, _StartArgs) ->
 	Dispatch = cowboy_router:compile([
 		{'_',[
 				{"/api/news/top5", news_top5_handler, []},     
-                {<<"/n/:id">>, news_page_handler, []},                      
+                {"/n/:id", news_page_handler, []},                      
 				{"/css/[...]", cowboy_static, 
 					[
                 		{directory, {priv_dir, enutv, ["public/css"]}},

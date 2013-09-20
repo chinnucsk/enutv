@@ -91,7 +91,7 @@ content:""
 .thumb {
     float: left;
     margin-right: 10px;
-    width: 50%;
+    width: 54%;
 }
 
 .gallery {float:left; margin:5px 5px 0 0; width:30%;}
@@ -340,3 +340,7 @@ aside.width30 {width:100%; float:none; margin:0;}
 .videodetails .title {font-size:14px; color:#0089D9; margin-bottom:10px;}
 .videodetails .title a {color:#0089D9;}
 .videodetails  .description {font-size:12px; margin-bottom:10px;}
+
+.featured-video-title {font-size: 18px;}
+
+.newsbody p {margin-bottom: 20px;}
