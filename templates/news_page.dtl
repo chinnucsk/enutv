@@ -21,7 +21,7 @@
         <nav>
           <a href="#"><span>Now!</span></a>
           <span class="separator"></span>
-          <a href="#" class="active"><span>News</span></a>
+          <a href="/" class="active"><span>News</span></a>
           <span class="separator"></span>
           <a href="#"><span>Entertainment</span></a>
           <span class="separator"></span>
