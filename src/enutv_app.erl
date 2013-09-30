@@ -12,7 +12,17 @@
 start(_StartType, _StartArgs) ->
 	Dispatch = cowboy_router:compile([
 		{'_',[
-				{"/api/news/top5", news_top5_handler, []},     
+                {"/api/news/news_around_the_web", news_aroundtheweb_handler, []},
+                {"/api/news/topnews_with_images", top_news_and_graphics_handler, []},  
+                {"/api/videos/latest", videos_latest_handler , []},
+                {"/api/videos/popular", videos_popular_handler ,[]},
+                {"/api/videos/latest_one", videos_latest_one_handler , []},
+                {"/api/videos/home_video", videos_home_video_handler, []},
+                {"/api/videos/count", video_count_handler, []},
+                {"/api/videos/get_all", videos_get_all_handler, []},
+                {"/videos", videos_pagination_handler, []},
+                {"/p/:category", news_categories_handler, []},
+                {"/v/:id", video_page_handler, []},                          
                 {"/n/:id", news_page_handler, []},                      
 				{"/css/[...]", cowboy_static, 
 					[

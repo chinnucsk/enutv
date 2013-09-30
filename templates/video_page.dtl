@@ -61,27 +61,12 @@
 
       <article>
         <aside class="width67">
-          <div class="slideshow">
-            <div class="width60">
-              <div class="video">
-                <!-- <div id="videoplayer" class="hiro"></div> -->
-                <video id="bannerVideo" class="video-js vjs-default-skin" controls
-                        preload="auto" width="99%" height="235px" poster="" data-setup='{}'
-                       ng-src="{% verbatim %}{{ homeVideoEmbedPath }}"{% endverbatim %} type='video/mp4'>
-                       <source type="video/mp4" />
-              </video>
-              </div>
-            </div>
-            <div class="slideshow-content width40">
-              <div class="slideshow-title">{% verbatim %}{{latestVideo.value.title}}{% endverbatim %}</div>
-              <p>{% verbatim %}{{latestVideo.value.description}}{% endverbatim %}</p>
-            </div>
-          </div>
-          <!--Slideshow Videos End-->
-
-          <div class="module-title">{{title}}</div>
-          <div class="newsbody">
-            {{ news_body }}
+          <div class="module">
+            <div class="module-title">{{ title }}</div>
+            <video id="my_video_1" class="video-js vjs-default-skin" controls
+                        preload="auto" width="636" height="359" poster="" data-setup='{}'>
+              <source src="http://91cefb89b61292d7a6a5-9b3e53ad93e76fa27450765a72dfcdf1.r61.cf2.rackcdn.com/{{ video_path }}" type='video/mp4' />
+            </video>  
           </div>
         </aside>
 
@@ -139,25 +124,7 @@
 
           <div class="clear"></div>
 
-          <div class="module popular">
-            <div class="module-title">Latest Videos</div>
-            <div class="module-inner">
-
-              <div class="row videorow" ng-repeat="lvid in latestVideos">
-                <span class="width40">
-                  <a ng-href="/v/{% verbatim %}{{lvid.value[0]}}{% endverbatim %}">
-                    <img ng-src="http://876490ded624fedbbf8f-2529efbed00bf302a12a4cac23251cd4.r64.cf2.rackcdn.com/{% verbatim %}{{lvid.value[2]}}{% endverbatim %}" width="97" height="75"/>
-                    <img class="smallplay" src="/images/play-icon.png">
-                  </a>
-                </span>
-                <span class="width60">
-                  <p><a ng-href="/v/{% verbatim %}{{lvid.value[0]}}{% endverbatim %}">{% verbatim %}{{lvid.value[1]}}{% endverbatim %}</a></p>
-                </span>
-              </div>
-              <a href="#" class="more">More Stories</a>
-            </div>
-          </div>
-          <!--Popular Stories End-->
+          
         </aside>
       </article>
       <!--Article End-->

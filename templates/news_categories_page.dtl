@@ -67,89 +67,29 @@
                 <!-- <div id="videoplayer" class="hiro"></div> -->
                 <video id="bannerVideo" class="video-js vjs-default-skin" controls
                         preload="auto" width="99%" height="235px" poster="" data-setup='{}'
-                       ng-src="{{ homeVideoEmbedPath }}" type='video/mp4'>
+                       ng-src="{% verbatim %}{{ homeVideoEmbedPath }}"{% endverbatim %} type='video/mp4'>
                        <source type="video/mp4" />
               </video>
               </div>
             </div>
             <div class="slideshow-content width40">
-              <div class="slideshow-title">{{latestVideo.value.title}}</div>
-              <p>{{latestVideo.value.description}}</p>
+              <div class="slideshow-title">{% verbatim %}{{latestVideo.value.title}}{% endverbatim %}</div>
+              <p>{% verbatim %}{{latestVideo.value.description}}{% endverbatim %}</p>
             </div>
           </div>
           <!--Slideshow Videos End-->
 
-          <div class="clear"></div>
-
-          <div class="module">
-            <div class="module-title">Trending Videos</div>
-            <div class="module-inner paddingR_o">
-              <div class="trending-videos">
-
-                <div class="width50" ng-repeat="lvid in trendingVideos">
-                  <span class="gallerythumb">
-                    <a ng-href="/v/{{lvid.value[0]}}">
-                      <img ng-src="http://876490ded624fedbbf8f-2529efbed00bf302a12a4cac23251cd4.r64.cf2.rackcdn.com/{{lvid.value[2]}}"/>
-                      <img class="play" src="/images/play-icon.png">
-                      <p class="duration small ng-binding">{{lvid.value[4]}} s</p>
-                    </a>
-                  </span>
-                  <span>
-                    <p>{{lvid.value[1]}} <span class="small">--Reuters</span></p>
-                  </span>
-                </div>
-                <a class="more" href="/videos?p=2">More Videos</a>
+          <div class="module-title">{{title}}</div>
+          <div class="newsbody">
+            <div class="module-inner">
+              {% for t in titles %}
+              <div class="row devider" >
+                <a href="/n/{{ t.id }}">{{ t.title }}</a>
               </div>
+              {% endfor %}
+              <a class="more right" href="#">More News</a>
             </div>
           </div>
-          <!--Trending Videos End-->
-
-          <div class="module">
-            <div class="module-title">Featured Video</div>
-            <!-- <div class="livevideo">
-              <a style="display:block;width:648px;height:360px;" id="bigplayer"></a>
-            </div>
-          </div> -->
-          <video id="featuredVideo" class="video-js vjs-default-skin" controls
-                          preload="auto" width="650" height="359" poster="" data-setup='{}'
-                         ng-src="{{ featuredVideoEmbedPath }}" type='video/mp4'>
-                         <source type="video/mp4" />
-              </video>
-              <span class="featured-video-title">{{ featuredVideoTitle}} ({{featuredVideoDuration}} sec)</span>
-          <!--Featured End-->
-
-         <!--  <div class="module">
-            <div class="module-title">World News</div>
-            <div class="module-inner">
-              <div class="row divider" ng-repeat="n in top5">
-                <a class="news" ng-href="/n/{{n.value.id}}">{{n.value.title}}</a>
-              </div>
-              <a class="more" href="http://wildridge.net/">More World News</a>
-            </div>
-          </div>
-          World News End
-
-          <div class="module">
-            <div class="module-title">Weird News</div>
-            <div class="module-inner">
-              <div class="row divider" ng-repeat="n in top5">
-                <a class="news" ng-href="/n/{{n.value.id}}">{{n.value.title}}</a>
-              </div>
-              <a class="more" href="http://wildridge.net/">More Weird News</a>
-            </div>
-          </div> -->
-          <!--Weird News End-->
-
-          <div class="module">
-            <div class="module-title">Around The Web</div>
-            <div class="module-inner">
-              <div class="row divider" ng-repeat="n in top5">
-                <a class="news" ng-href="/n/{{n.value.id}}">{{n.value.title}}</a>
-              </div>
-              <a class="more" href="#">More News</a>
-            </div>
-          </div>
-          <!--AROUND THE WEB End-->
         </aside>
 
         <aside class="width30 margin20_L">
@@ -161,15 +101,15 @@
             <div class="module-inner">
               <div class="videorow" ng-repeat="ng in topNewsAndGraphics">
                 <span class="thumb">
-                  <img ng-src="http://cdee2b9f4d70bbbec792-dc1168873264971973cbf6ea4d0b36c7.r91.cf2.rackcdn.com/{{ ng.value.thumbnail }}"/>
+                  <img ng-src="http://cdee2b9f4d70bbbec792-dc1168873264971973cbf6ea4d0b36c7.r91.cf2.rackcdn.com/{% verbatim %}{{ ng.value.thumbnail }}{% endverbatim %}"/>
                 </span>
                 <span>
-                  <p>{{ ng.value.title }}</p>
+                  <p>{% verbatim %}{{ ng.value.title }}{% endverbatim %}</p>
                 </span>
               </div>
               
               <div class="videorow">
-                <a href="#" class="more right">More Videos</a>
+                <!-- <a href="#" class="more right">More Videos</a> -->
               </div>
             </div>
           </div>
@@ -212,13 +152,13 @@
 
               <div class="row videorow" ng-repeat="lvid in latestVideos">
                 <span class="width40">
-                  <a ng-href="/v/{{lvid.value[0]}}">
-                    <img ng-src="http://876490ded624fedbbf8f-2529efbed00bf302a12a4cac23251cd4.r64.cf2.rackcdn.com/{{lvid.value[2]}}" width="97" height="75"/>
+                  <a ng-href="/v/{% verbatim %}{{lvid.value[0]}}{% endverbatim %}">
+                    <img ng-src="http://876490ded624fedbbf8f-2529efbed00bf302a12a4cac23251cd4.r64.cf2.rackcdn.com/{% verbatim %}{{lvid.value[2]}}{% endverbatim %}" width="97" height="75"/>
                     <img class="smallplay" src="/images/play-icon.png">
                   </a>
                 </span>
                 <span class="width60">
-                  <p><a ng-href="/v/{{lvid.value[0]}}">{{lvid.value[1]}}</a></p>
+                  <p><a ng-href="/v/{% verbatim %}{{lvid.value[0]}}{% endverbatim %}">{% verbatim %}{{lvid.value[1]}}{% endverbatim %}</a></p>
                 </span>
               </div>
               <a href="#" class="more">More Stories</a>
@@ -253,54 +193,5 @@
       </div>
     </footer>
     <!--Footer End-->
-    <!--
-    <script language="JavaScript">
-      flowplayer('bigplayer', '/players/flowplayer/flowplayer-3.2.16.swf', {
-        // This will enable pseudostreaming support
-        plugins: {
-          pseudo: {
-            url: 'http://releases.flowplayer.org/swf/flowplayer.pseudostreaming-3.2.12.swf'
-          }
-        },
-        // Clip properties
-        clip: {
-            url: 'http://91cefb89b61292d7a6a5-9b3e53ad93e76fa27450765a72dfcdf1.r61.cf2.rackcdn.com/2013-09-17T043612Z_1_LOVE98G0CSBPP_RTRMADV_STREAM-700-16X9-MP4_ITALY-CONCORDIA-MISSION-COMPLETE-O.MP4',
-            autoPlay: false,
-            autoBuffering: true,
-            provider: 'pseudo'
-          }
-        });
-    </script>
-    <script>
-      window.hiro = {
-        externalID:'Ybrant-US-Wildridge',
-        subExternalID: '${PUBLISHER_ID}',
-        width: 300,
-        height: 250,
-        player: 'videoplayer',
-        scale_start : 1,
-        scale_hover : 1,
-        scale_off_hover: 1,
-        lob_start: 0.8,
-        lob_hover: 0.8,
-        lob_off_hover: 0.8,
-        noPrerollUserInitiate : false,
-        userInitiate: false,
-        Flowplayer_License_key:'#$81471f529599f62f27e',
-        splashImg : 'http://videos.hiro.co.il/demo_clips/splash_image.png',
-        playImg : 'http://software.hiro.tv/User_initiate/play_large.png',
-        playList: [{
-          url: '',
-          customProperties: {
-            videoTitle : '',
-            videoDescription : '',
-            videoKeyWords : '',
-            videoTags : '',
-            videoDurationSecs : ''
-          }
-        }]
-      };
-    </script>
-    <script src="http://tag.ybrant.hiro.tv/premium/scripts/hiro_dynamic_player.js?config=conf1"></script> -->
   </body>
 </html>
