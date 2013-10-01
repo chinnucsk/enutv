@@ -23,34 +23,36 @@ terminate(_Reason, _Req, _State) ->
 %% API
 welcome(Req, State) ->
 	{[{Name,Value}], Req2} = cowboy_req:bindings(Req),
-	lager:info("News Category item with id : ~p requested", [binary_to_list(Value)]),
+	{Page, PageNumber} = cowboy_req:qs_val(<<"page">>, Req),
 	Url = case binary_to_list(Value) of 
+		"World" ->
+			%Category = "US",
+			enutv_util:news_category_url("world_news", list_to_integer(binary_to_list(Page)) );
 		"US" ->
 			%Category = "US",
-			enutv_util:news_category_url("us_news");
+			enutv_util:news_category_url("us_news", list_to_integer(binary_to_list(Page)));
 			
 		"Politics" ->
 			%Category = "Politics",
-			enutv_util:news_category_url("us_politics");
+			enutv_util:news_category_url("us_politics", list_to_integer(binary_to_list(Page)));
 			
 		"Entertainment" ->
 			%Category = "Entertainment",
-			enutv_util:news_category_url("us_entertainment");
+			enutv_util:news_category_url("us_entertainment", list_to_integer(binary_to_list(Page)));
 		
 		"Markets" ->
 			%Category = "Entertainment",
-			enutv_util:news_category_url("us_markets");			
+			enutv_util:news_category_url("us_markets", list_to_integer(binary_to_list(Page)));			
 
 		"Money" ->
 			%Category = "Entertainment",
-			enutv_util:news_category_url("us_money");			
+			enutv_util:news_category_url("us_money", list_to_integer(binary_to_list(Page)));			
 		_ ->
 
 			%Category = "None",
 			lager:info("#########################None")
 
 	end,
-	lager:info("Url is ~p", [Url]),
 	%Url = wildridge_util:news_db_url(binary_to_list(Value)), 
 	{ok, "200", _, Response} = ibrowse:send_req(Url,[],get,[],[]),
 	Res = string:sub_string(Response, 1, string:len(Response) -1 ),
@@ -58,10 +60,7 @@ welcome(Req, State) ->
 	{value, {<<"rows">>, RowsList }}= lists:keysearch(<<"rows">>,1, Params),
 	%Titles = [ Title || [_,_,{<<"value">>,[{<<"title">>,Title},_]}] <- RowsList ],
 	Id_Title_Descriptions =  [ [{ <<"id">>, Id} , {<<"title">>, Title}, {<<"description">>,Description}] || [{_,Id},_,{<<"value">>,[{<<"title">>,Title},{_,Description}]}] <- RowsList ],
- 
-	lager:info("~p", [Id_Title_Descriptions]),
-	{ok, Body} = news_categories_page_dtl:render([{<<"titles">>, Id_Title_Descriptions}]),
-
+	{ok, Body} = news_categories_page_dtl:render([{<<"titles">>, Id_Title_Descriptions}, {<<"category">>, binary_to_list(Value) }]),
     {Body, Req2, State}.
     
 

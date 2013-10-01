@@ -14,10 +14,12 @@
 		 videos_get_all/2,
 		 news_db_url/0, 
 		 news_db_url/1,
-		 news_around_the_web/1,
+		 news_top_text_news_with_limit/2,
 		 news_top_text_news_with_limit/1,
 		 news_top_text_graphics_news_with_limit/1,
-		 news_category_url/1
+		 news_category_url/2,
+		 news_count/1,
+		 news_by_category_limit_skip/3
 		]).
 
 
@@ -81,11 +83,14 @@ news_db_url(NewsId) ->
 	string:concat(?MODULE:news_db_url(), NewsId)
 .
 
-news_around_the_web(Limit) ->
-	%%http://localhost:5984/wildridge/_design/gallyo_news_atw/_view/by_id_title_description?descending=true&limit=10
-	Url1 = string:concat(?MODULE:news_db_url(),"_design/gallyo_news_atw/_view/by_id_title_description?descending=true&limit="),
-	string:concat(Url1, Limit)
+news_top_text_news_with_limit(Category,Limit) ->
+	%% http://localhost:5984/wildridge/_design/news_by_category/_view/us_news?descending=true&limit=10
+	Url1 = string:concat(?MODULE:news_db_url(), "_design/news_by_category/_view/" ),
+	Url2 = string:concat(Url1, Category),
+	Url3 = string:concat(Url2, "?descending=true&limit="),
+	string:concat(Url3, Limit)
 .
+
 news_top_text_news_with_limit(Limit) ->
 	%%http://localhost:5984/wildridge/_design/news/_view/by_id_title_description?descending=true&limit=10
 	Url1 = string:concat(?MODULE:news_db_url(), "_design/news/_view/by_id_title_description?descending=true&limit="),
@@ -98,9 +103,28 @@ news_top_text_graphics_news_with_limit(Limit) ->
 	string:concat(Url1,Limit)
 .
 
-news_category_url(Category) ->
+news_category_url(Category, PageNumber) ->
 	%% http://localhost:5984/wildridge/_design/news_by_category/_view/us_news?descending=true&limit=10
+	Skip = (PageNumber  -  1)  * 15,
 	Url1 = string:concat(?MODULE:news_db_url(), "_design/news_by_category/_view/" ),
 	Url2 = string:concat(Url1, Category),
-	string:concat(Url2, "?descending=true&limit=15")
+	Url3 = string:concat(Url2, "?descending=true&limit=15&skip="),
+	string:concat(Url3, integer_to_list(Skip))
+.
+
+news_count(Category) ->
+	%% http://localhost:5984/wildridge/_design/get_count/_view/<category>
+	Url1 = string:concat(?MODULE:news_db_url(), "_design/get_count/_view/"),
+	string:concat(Url1, Category) 
+.
+
+news_by_category_limit_skip(Category, Skip, Limit) ->
+	%%http://localhost:5984/wildridge/_design/news_by_category/_view/us_news?limit=15&skip=0
+	Url1 = string:concat(?MODULE:news_db_url(), "_design/news_by_category/_view/"),
+	Url2 = string:concat(Url1, Category),
+	Url3 = string:concat(Url2, "&limit="),
+	Url4 = string:concat(Url3, Limit),
+	Url5 = string:concat(Url4, "&skip="),
+	string:concat(Url5, Skip)
+
 .

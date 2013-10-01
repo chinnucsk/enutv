@@ -20,19 +20,19 @@
     <div class="container">
       <div class="navgation">
         <nav>
-          <a href="#"><span>Now!</span></a>
+          <a href="/" class="active"><span>Now!</span></a>
           <span class="separator"></span>
-          <a href="/" class="active"><span>World News</span></a>
+          <a href="/p/World?page=1" ><span>World News</span></a>
           <span class="separator"></span>
-          <a href="/p/US"><span>US</span></a>
+          <a href="/p/US?page=1"><span>US</span></a>
           <span class="separator"></span>
-          <a href="/p/Politics"><span>Politics</span></a>
+          <a href="/p/Politics?page=1"><span>Politics</span></a>
           <span class="separator"></span>
-          <a href="/p/Entertainment"><span>Entertainment</span></a>
+          <a href="/p/Entertainment?page=1"><span>Entertainment</span></a>
           <span class="separator"></span>
-          <a href="/p/Markets"><span>Markets</span></a>
+          <a href="/p/Markets?page=1"><span>Markets</span></a>
           <span class="separator"></span>
-          <a href="/p/Money"><span>Money</span></a>
+          <a href="/p/Money?page=1"><span>Money</span></a>
         </nav>
         <!-- <div class="navright">
           <a href="#" class="login">Login</a>
@@ -80,6 +80,16 @@
           <!--Slideshow Videos End-->
 
           <div class="clear"></div>
+          <div class="module">
+            <div class="module-title">Around The Web</div>
+            <div class="module-inner">
+              <div class="row divider" ng-repeat="n in topWorldNews">
+                <a class="news" ng-href="/n/{{n.id}}">{{n.value.title}}</a>
+              </div>
+              <a class="more" href="/p/World?page=1">More</a>
+            </div>
+          </div>
+          <!--AROUND THE WEB End-->
 
           <div class="module">
             <div class="module-title">Trending Videos</div>
@@ -103,6 +113,29 @@
             </div>
           </div>
           <!--Trending Videos End-->
+          
+          <div class="clear"></div>
+          <div class="module">
+            <div class="module-title">US News</div>
+            <div class="module-inner">
+              <div class="row divider" ng-repeat="n in topUsNews">
+                <a class="news" ng-href="/n/{{n.id}}">{{n.value.title}}</a>
+              </div>
+              <a class="more" href="/p/US?page=1">More</a>
+            </div>
+          </div>
+          <!--US News End-->
+          <div class="clear"></div>
+          <div class="module">
+            <div class="module-title">US Politics</div>
+            <div class="module-inner">
+              <div class="row divider" ng-repeat="n in topPoliticsNews">
+                <a class="news" ng-href="/n/{{n.id}}">{{n.value.title}}</a>
+              </div>
+              <a class="more" href="/p/Politics?page=1">More</a>
+            </div>
+          </div>
+          <!--Politics End-->
 
           <div class="module">
             <div class="module-title">Featured Video</div>
@@ -139,17 +172,43 @@
             </div>
           </div> -->
           <!--Weird News End-->
-
+          <div class="clear"></div>
           <div class="module">
-            <div class="module-title">Around The Web</div>
+            <div class="module-title">Entertainment</div>
             <div class="module-inner">
-              <div class="row divider" ng-repeat="n in top5">
-                <a class="news" ng-href="/n/{{n.value.id}}">{{n.value.title}}</a>
+              <div class="row divider" ng-repeat="n in topEntertainmentNews">
+                <a class="news" ng-href="/n/{{n.id}}">{{n.value.title}}</a>
               </div>
-              <a class="more" href="#">More News</a>
+              <a class="more" href="/p/Entertainment?page=1">More</a>
             </div>
           </div>
-          <!--AROUND THE WEB End-->
+          <!--Entertainment End-->
+
+          <div class="clear"></div>
+          <div class="module">
+            <div class="module-title">Markets</div>
+            <div class="module-inner">
+              <div class="row divider" ng-repeat="n in topMarketNews">
+                <a class="news" ng-href="/n/{{n.id}}">{{n.value.title}}</a>
+              </div>
+              <a class="more" href="/p/Markets?page=1">More</a>
+            </div>
+          </div>
+          <!--Markets End-->
+
+          <div class="clear"></div>
+          <div class="module">
+            <div class="module-title">Money</div>
+            <div class="module-inner">
+              <div class="row divider" ng-repeat="n in topMoneyNews">
+                <a class="news" ng-href="/n/{{n.id}}">{{n.value.title}}</a>
+              </div>
+              <a class="more" href="/p/Money?page=1">More</a>
+            </div>
+          </div>
+          <!--Money End-->
+
+          
         </aside>
 
         <aside class="width30 margin20_L">

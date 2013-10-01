@@ -19,20 +19,88 @@
   <body ng-controller="NultvHome" ng-cloak>
     <div class="container">
       <div class="navgation">
-        <nav>
-          <a href="#"><span>Now!</span></a>
+        <nav> 
+          <a href="/"><span>Now!</span></a>
           <span class="separator"></span>
-          <a href="/" class="active"><span>World News</span></a>
-          <span class="separator"></span>
-          <a href="/p/US"><span>US</span></a>
-          <span class="separator"></span>
-          <a href="/p/Politics"><span>Politics</span></a>
-          <span class="separator"></span>
-          <a href="/p/Entertainment"><span>Entertainment</span></a>
-          <span class="separator"></span>
-          <a href="/p/Markets"><span>Markets</span></a>
-          <span class="separator"></span>
-          <a href="/p/Money"><span>Money</span></a>
+          {%  ifequal category "World" %}
+            <a href="/p/World?page=1" class="active"><span>World News</span></a>
+            <span class="separator"></span>
+            <a href="/p/US?page=1"><span>US</span></a>
+            <span class="separator"></span>
+            <a href="/p/Politics?page=1"><span>Politics</span></a>
+            <span class="separator"></span>
+            <a href="/p/Entertainment?page=1"><span>Entertainment</span></a>
+            <span class="separator"></span>
+            <a href="/p/Markets?page=1"><span>Markets</span></a>
+            <span class="separator"></span>
+            <a href="/p/Money?page=1"><span>Money</span></a>
+          {% endifequal %}
+          {%  ifequal category "US" %}
+            <a href="/p/World?page=1"><span>World News</span></a>
+            <span class="separator"></span>
+            <a href="/p/US?page=1" class="active"><span>US</span></a>
+            <span class="separator"></span>
+            <a href="/p/Politics?page=1"><span>Politics</span></a>
+            <span class="separator"></span>
+            <a href="/p/Entertainment?page=1"><span>Entertainment</span></a>
+            <span class="separator"></span>
+            <a href="/p/Markets?page=1"><span>Markets</span></a>
+            <span class="separator"></span>
+            <a href="/p/Money?page=1"><span>Money</span></a>
+          {% endifequal %}
+          {%  ifequal category "Politics" %}
+            <a href="/p/World?page=1"><span>World News</span></a>
+            <span class="separator"></span>
+            <a href="/p/US?page=1"><span>US</span></a>
+            <span class="separator"></span>
+            <a href="/p/Politics?page=1" class="active"><span>Politics</span></a>
+            <span class="separator"></span>
+            <a href="/p/Entertainment?page=1"><span>Entertainment</span></a>
+            <span class="separator"></span>
+            <a href="/p/Markets?page=1"><span>Markets</span></a>
+            <span class="separator"></span>
+            <a href="/p/Money?page=1"><span>Money</span></a>
+          {% endifequal %}
+          {%  ifequal category "Entertainment" %}
+            <a href="/p/World?page=1"><span>World News</span></a>
+            <span class="separator"></span>
+            <a href="/p/US?page=1"><span>US</span></a>
+            <span class="separator"></span>
+            <a href="/p/Politics?page=1" ><span>Politics</span></a>
+            <span class="separator"></span>
+            <a href="/p/Entertainment?page=1" class="active"><span>Entertainment</span></a>
+            <span class="separator"></span>
+            <a href="/p/Markets?page=1"><span>Markets</span></a>
+            <span class="separator"></span>
+            <a href="/p/Money?page=1"><span>Money</span></a>
+          {% endifequal %}
+          {%  ifequal category "Markets" %}
+            <a href="/World?page=1"><span>World News</span></a>
+            <span class="separator"></span>
+            <a href="/p/US?page=1"><span>US</span></a>
+            <span class="separator"></span>
+            <a href="/p/Politics?page=1" ><span>Politics</span></a>
+            <span class="separator"></span>
+            <a href="/p/Entertainment?page=1"><span>Entertainment</span></a>
+            <span class="separator"></span>
+            <a href="/p/Markets?page=1" class="active"><span>Markets</span></a>
+            <span class="separator"></span>
+            <a href="/p/Money?page=1"><span>Money</span></a>
+          {% endifequal %}
+          {%  ifequal category "Money" %}
+            <a href="/World?page=1"><span>World News</span></a>
+            <span class="separator"></span>
+            <a href="/p/US?page=1"><span>US</span></a>
+            <span class="separator"></span>
+            <a href="/p/Politics?page=1" ><span>Politics</span></a>
+            <span class="separator"></span>
+            <a href="/p/Entertainment?page=1"><span>Entertainment</span></a>
+            <span class="separator"></span>
+            <a href="/p/Markets?page=1"><span>Markets</span></a>
+            <span class="separator"></span>
+            <a href="/p/Money?page=1" class="active"><span>Money</span></a>
+          {% endifequal %}
+          
         </nav>
         <!-- <div class="navright">
           <a href="#" class="login">Login</a>
@@ -81,13 +149,15 @@
 
           <div class="module-title">{{title}}</div>
           <div class="newsbody">
-            <div class="module-inner">
+            <div class="module-inner" ng-controller="NulTvNewsPagination">
               {% for t in titles %}
               <div class="row devider" >
                 <a href="/n/{{ t.id }}">{{ t.title }}</a>
               </div>
               {% endfor %}
-              <a class="more right" href="#">More News</a>
+              <div class="row">
+                <pagination on-select-page="pageChanged(page)" items-per-page="newsPerPage" total-items="bigTotalItems" page="bigCurrentPage" max-size="maxSize" boundary-links="true" rotate="false" num-pages="numPages"></pagination>
+              </div>
             </div>
           </div>
         </aside>

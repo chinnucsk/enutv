@@ -43,6 +43,59 @@ app.factory('nultvHomePageService', function ($http) {
 				var randVideoCount = Math.floor((Math.random() * 15) + 1);
 				return result.data.rows[randVideoCount];
 			});
+		},
+		getTopWorldNews: function (count) {
+			return $http.get('/api/news/topnews?c=World&n=' + count).then(function (result) {
+				return result.data.rows;
+			});
+		},
+		getTopUsNews: function (count) {
+			return $http.get('/api/news/topnews?c=US&n=' + count).then(function (result) {
+				return result.data.rows;
+			});
+		},
+		getTopEntertainmentNews: function (count) {
+			return $http.get('/api/news/topnews?c=Entertainment&n=' + count).then(function (result) {
+				return result.data.rows;
+			});
+		},
+		getTopPoliticsNews: function (count) {
+			return $http.get('/api/news/topnews?c=Politics&n=' + count).then(function (result) {
+				return result.data.rows;
+			});
+		},
+		getTopMarketNews: function (count) {
+			return $http.get('/api/news/topnews?c=Markets&n=' + count).then(function (result) {
+				return result.data.rows;
+			});
+		},
+		getTopMoneyNews: function (count) {
+			return $http.get('/api/news/topnews?c=Money&n=' + count).then(function (result) {
+				return result.data.rows;
+			});
+		},
+
+		getTopNewsWithImages: function (count) {
+			return $http.get('/api/news/topnews_with_images?n=' + count).then(function (result) {
+				return result.data.rows;
+			});
+		},
+		getFeaturedVideo: function () {
+			return $http.get('/api/videos/home_video').then(function (result) {
+				var randVideoCount = Math.floor((Math.random() * 15) + 1);
+				return result.data.rows[randVideoCount];
+			});
+		},
+		getNewsCount: function (category) {
+			return $http.get('/api/news/count?c=' + category).then(function (result) {
+				return result.data.rows;
+			});
+		},
+		getAllCategoryNews: function (newsPerPage, skipValue, category) {
+			return $http.get('/api/news/get_all?c=' + category + '&skip=' + skipValue + '&perpage=' + newsPerPage).then(function (result) {
+				return result.data.rows;
+			});
+
 		}
 	};
 });
@@ -56,7 +109,12 @@ app.controller('NultvHome', function ($scope, nultvHomePageService, $window) {
 	// Top Latest Video Details
 	$scope.latestVideo = nultvHomePageService.getLatestOneVideo();
 	// Top 5 News items
-	$scope.top5 = nultvHomePageService.getNewsAroundTheWeb(10);
+	$scope.topWorldNews = nultvHomePageService.getTopWorldNews(5);
+	$scope.topUsNews = nultvHomePageService.getTopUsNews(5);
+	$scope.topEntertainmentNews = nultvHomePageService.getTopEntertainmentNews(5);
+	$scope.topPoliticsNews = nultvHomePageService.getTopPoliticsNews(5);
+	$scope.topMarketNews = nultvHomePageService.getTopMarketNews(5);
+	$scope.topMoneyNews = nultvHomePageService.getTopMoneyNews(5);
 
 	// Top 5 News items with Graphics
 	$scope.topNewsAndGraphics = nultvHomePageService.getTopNewsWithImages(5);
@@ -126,3 +184,56 @@ app.controller('NultvVideoPage', function ($scope, nultvHomePageService, $window
 
 
 });
+
+app.controller('NulTvNewsPagination', function ($scope, nultvHomePageService) {
+
+	
+	$scope.newsPerPage = 15;
+	// Get the Pathname for last segment
+	var url = window.location.pathname;
+	// Get the category from segment
+	var category = url.substring(url.indexOf("/")+3);
+
+	// Javascript Custom Function to get teh URL params, decode them
+	function getURLParameter (name) {
+		return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null;
+	}
+
+	// Get all Video's Count
+	$scope.newsCount = nultvHomePageService.getNewsCount(category);
+	// Generate the numberOfPages and pages content based on the newsCount
+	$scope.$watch('newsCount', function (newsCountObj) {
+		if (newsCountObj !== undefined) {
+			// Sample Output: {"rows":[{"key":null,"value":650}]}
+			$scope.numberOfPages = (Math.ceil(newsCountObj[0].value/$scope.newsPerPage)).toString();
+
+			// Pagination plugin
+			$scope.bigTotalItems = newsCountObj[0].value;
+		}
+	});
+
+	// Get noneFeaturedVideos list based on the page(number) we are hitting from.
+	$scope.currentPageNumber = parseInt(getURLParameter('page'), 10);
+	if (isNaN($scope.currentPageNumber)) {
+		skipValue = 0;
+		$scope.currentPageNumber = 1;
+	} else {
+		skipValue = parseInt(($scope.currentPageNumber - 1) * $scope.videosPerPage, 10);
+	}
+	$scope.categoryNews = nultvHomePageService.getAllCategoryNews($scope.newsPerPage, skipValue, category);
+
+	// Pagination plugin
+	$scope.bigCurrentPage = $scope.currentPageNumber;
+	$scope.maxSize = 6; // Max number of pages to be displayed at a time
+
+
+	// Pagination plugin
+	// This function is triggred when user tends to change the page using the plugin.
+	$scope.pageChanged = function (page) {
+		location.replace('/p/' + category + '?page=' + page);
+	};
+
+	$scope.topNewsAndGraphics = nultvHomePageService.getTopNewsWithImages(10);
+
+});
+

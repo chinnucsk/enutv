@@ -12,7 +12,10 @@
 start(_StartType, _StartArgs) ->
 	Dispatch = cowboy_router:compile([
 		{'_',[
-                {"/api/news/news_around_the_web", news_aroundtheweb_handler, []},
+                
+                {"/api/news/topnews", news_topnews_handler, []}, 
+                {"/api/news/count", news_count_by_category_handler, []},
+                {"/api/news/get_all", news_get_all_by_category_handler,[]},    
                 {"/api/news/topnews_with_images", top_news_and_graphics_handler, []},  
                 {"/api/videos/latest", videos_latest_handler , []},
                 {"/api/videos/popular", videos_popular_handler ,[]},

@@ -20,20 +20,21 @@
     <div class="container">
       <div class="navgation">
         <nav>
-          <a href="#"><span>Now!</span></a>
+          <a href="/"><span>Now!</span></a>
           <span class="separator"></span>
-          <a href="/" class="active"><span>World News</span></a>
+          <a href="/p/World?page=1" ><span>World News</span></a>
           <span class="separator"></span>
-          <a href="/p/US"><span>US</span></a>
+          <a href="/p/US?page=1"><span>US</span></a>
           <span class="separator"></span>
-          <a href="/p/Politics"><span>Politics</span></a>
+          <a href="/p/Politics?page=1"><span>Politics</span></a>
           <span class="separator"></span>
-          <a href="/p/Entertainment"><span>Entertainment</span></a>
+          <a href="/p/Entertainment?page=1"><span>Entertainment</span></a>
           <span class="separator"></span>
-          <a href="/p/Markets"><span>Markets</span></a>
+          <a href="/p/Markets?page=1"><span>Markets</span></a>
           <span class="separator"></span>
-          <a href="/p/Money"><span>Money</span></a>
+          <a href="/p/Money?page=1"><span>Money</span></a>
         </nav>
+
         <!-- <div class="navright">
           <a href="#" class="login">Login</a>
           <span class="separator"></span>
