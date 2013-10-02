@@ -133,11 +133,12 @@
             <div class="width60">
               <div class="video">
                 <!-- <div id="videoplayer" class="hiro"></div> -->
-                <video id="bannerVideo" class="video-js vjs-default-skin" controls
+                <!-- <video id="bannerVideo" class="video-js vjs-default-skin" controls
                         preload="auto" width="99%" height="235px" poster="" data-setup='{}'
                        ng-src="{% verbatim %}{{ homeVideoEmbedPath }}"{% endverbatim %} type='video/mp4'>
                        <source type="video/mp4" />
-              </video>
+              </video> -->
+              <video-js></video-js>
               </div>
             </div>
             <div class="slideshow-content width40">

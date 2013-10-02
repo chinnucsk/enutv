@@ -218,7 +218,7 @@ app.controller('NulTvNewsPagination', function ($scope, nultvHomePageService) {
 		skipValue = 0;
 		$scope.currentPageNumber = 1;
 	} else {
-		skipValue = parseInt(($scope.currentPageNumber - 1) * $scope.videosPerPage, 10);
+		skipValue = parseInt(($scope.currentPageNumber - 1) * $scope.newsPerPage, 10);
 	}
 	$scope.categoryNews = nultvHomePageService.getAllCategoryNews($scope.newsPerPage, skipValue, category);
 
@@ -236,4 +236,64 @@ app.controller('NulTvNewsPagination', function ($scope, nultvHomePageService) {
 	$scope.topNewsAndGraphics = nultvHomePageService.getTopNewsWithImages(10);
 
 });
+
+app.directive("videoJs", function(nultvHomePageService){
+	return {
+		restrict: "E",
+		scope: {
+			
+		},
+		template: 
+			'<video id="banner_video" class="video-js vjs-default-skin" controls preload="auto" width="99%" height="235px" poster="" data-setup=\'{}\'>' +
+ 				'<source src="" type=\'video/mp4\'>' + 
+			'</video>',
+		replace: true,
+		transclude: false,
+		link: function ($scope, element, attrs) {
+			$scope.latestVideoPath = nultvHomePageService.getLatestOneVideo();
+			$scope.$watch('latestVideoPath', function (videoObj) {
+				if (videoObj !== undefined) {
+					$scope.hVideoEmbedPath = 'http://91cefb89b61292d7a6a5-9b3e53ad93e76fa27450765a72dfcdf1.r61.cf2.rackcdn.com/' + videoObj.value.video_path;					
+					_V_("banner_video").ready(function(){
+		      			var myPlayer = this;
+      					myPlayer.src($scope.hVideoEmbedPath);      					
+					});
+				}
+			});
+
+		}
+	}
+});
+
+app.directive("featuredVideoJs", function(nultvHomePageService){
+	return {
+		restrict: "E",
+		scope: {
+			
+		},
+		template: 
+			'<video id="feature_video" class="video-js vjs-default-skin" controls preload="auto" width="650px" height="359px" poster="" data-setup=\'{}\'>' +
+ 				'<source src="" type=\'video/mp4\'>' + 
+			'</video>',
+		replace: true,
+		transclude: false,
+		link: function ($scope, element, attrs) {
+			$scope.featuredVideoPath = wildridgeHomePageService.getFeaturedVideo();
+			
+			$scope.$watch('featuredVideoPath', function(featuredVideoObj) {
+				if (featuredVideoObj !== undefined) {
+					$scope.fVideoEmbedPath = "http://91cefb89b61292d7a6a5-9b3e53ad93e76fa27450765a72dfcdf1.r61.cf2.rackcdn.com/" + featuredVideoObj.value.video_path;
+					$scope.featuredVideoPathTitle = featuredVideoObj.value.title;
+					$scope.featuredVideoPathDuration = featuredVideoObj.value.duration;
+					_V_("feature_video").ready(function(){
+		      			var myPlayer = this;
+      					myPlayer.src($scope.fVideoEmbedPath);      					
+					});
+				}
+			});
+		}
+	}
+});
+
+
 

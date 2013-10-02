@@ -59,7 +59,7 @@ welcome(Req, State) ->
 	Params = jsx:decode(list_to_binary(Res)),
 	{value, {<<"rows">>, RowsList }}= lists:keysearch(<<"rows">>,1, Params),
 	%Titles = [ Title || [_,_,{<<"value">>,[{<<"title">>,Title},_]}] <- RowsList ],
-	Id_Title_Descriptions =  [ [{ <<"id">>, Id} , {<<"title">>, Title}, {<<"description">>,Description}] || [{_,Id},_,{<<"value">>,[{<<"title">>,Title},{_,Description}]}] <- RowsList ],
+	Id_Title_Descriptions =  [ [{ <<"id">>, Id} , {<<"title">>, Title}, {<<"description">>,Description}, {<<"uploaded_date">>, UploadedDate}] || [{_,Id},_,{<<"value">>,[{<<"title">>,Title},{_,Description},{_, UploadedDate}]}] <- RowsList ],
 	{ok, Body} = news_categories_page_dtl:render([{<<"titles">>, Id_Title_Descriptions}, {<<"category">>, binary_to_list(Value) }]),
     {Body, Req2, State}.
     

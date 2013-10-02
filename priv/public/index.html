@@ -65,11 +65,12 @@
             <div class="width60">
               <div class="video">
                 <!-- <div id="videoplayer" class="hiro"></div> -->
-                <video id="bannerVideo" class="video-js vjs-default-skin" controls
+                <!-- <video id="bannerVideo" class="video-js vjs-default-skin" controls
                         preload="auto" width="99%" height="235px" poster="" data-setup='{}'
                        ng-src="{{ homeVideoEmbedPath }}" type='video/mp4'>
                        <source type="video/mp4" />
-              </video>
+              </video> -->
+              <video-js></video-js>
               </div>
             </div>
             <div class="slideshow-content width40">
@@ -143,12 +144,13 @@
               <a style="display:block;width:648px;height:360px;" id="bigplayer"></a>
             </div>
           </div> -->
-          <video id="featuredVideo" class="video-js vjs-default-skin" controls
+          <<!-- video id="featuredVideo" class="video-js vjs-default-skin" controls
                           preload="auto" width="650" height="359" poster="" data-setup='{}'
                          ng-src="{{ featuredVideoEmbedPath }}" type='video/mp4'>
                          <source type="video/mp4" />
-              </video>
-              <span class="featured-video-title">{{ featuredVideoTitle}} ({{featuredVideoDuration}} sec)</span>
+              </video> -->
+              <!-- <span class="featured-video-title">{{ featuredVideoTitle}} ({{featuredVideoDuration}} sec)</span> -->
+              <featured-video-js></featured-video-js>
           <!--Featured End-->
 
          <!--  <div class="module">
