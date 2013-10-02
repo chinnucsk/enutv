@@ -278,7 +278,7 @@ app.directive("featuredVideoJs", function(nultvHomePageService){
 		replace: true,
 		transclude: false,
 		link: function ($scope, element, attrs) {
-			$scope.featuredVideoPath = wildridgeHomePageService.getFeaturedVideo();
+			$scope.featuredVideoPath = nultvHomePageService.getFeaturedVideo();
 			
 			$scope.$watch('featuredVideoPath', function(featuredVideoObj) {
 				if (featuredVideoObj !== undefined) {
