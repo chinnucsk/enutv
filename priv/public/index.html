@@ -85,7 +85,7 @@
             <div class="module-title">Around The Web</div>
             <div class="module-inner">
               <div class="row divider" ng-repeat="n in topWorldNews">
-                <a class="news" ng-href="/n/{{n.id}}">{{n.value.title}}</a>
+                <a class="news" ng-href="/n/{{n.id}}">{{n.value.title}}</a><span class="uploaded-date">{{n.value.uploadedDate}}</span>
               </div>
               <a class="more" href="/p/World?page=1">More</a>
             </div>
@@ -120,7 +120,7 @@
             <div class="module-title">US News</div>
             <div class="module-inner">
               <div class="row divider" ng-repeat="n in topUsNews">
-                <a class="news" ng-href="/n/{{n.id}}">{{n.value.title}}</a>
+                <a class="news" ng-href="/n/{{n.id}}">{{n.value.title}}</a><span class="uploaded-date">{{n.value.uploadedDate}}</span>
               </div>
               <a class="more" href="/p/US?page=1">More</a>
             </div>
@@ -131,7 +131,7 @@
             <div class="module-title">US Politics</div>
             <div class="module-inner">
               <div class="row divider" ng-repeat="n in topPoliticsNews">
-                <a class="news" ng-href="/n/{{n.id}}">{{n.value.title}}</a>
+                <a class="news" ng-href="/n/{{n.id}}">{{n.value.title}}</a><span class="uploaded-date">{{n.value.uploadedDate}}</span>
               </div>
               <a class="more" href="/p/Politics?page=1">More</a>
             </div>
@@ -178,7 +178,7 @@
             <div class="module-title">Entertainment</div>
             <div class="module-inner">
               <div class="row divider" ng-repeat="n in topEntertainmentNews">
-                <a class="news" ng-href="/n/{{n.id}}">{{n.value.title}}</a>
+                <a class="news" ng-href="/n/{{n.id}}">{{n.value.title}}</a><span class="uploaded-date">{{n.value.uploadedDate}}</span>
               </div>
               <a class="more" href="/p/Entertainment?page=1">More</a>
             </div>
@@ -190,7 +190,7 @@
             <div class="module-title">Markets</div>
             <div class="module-inner">
               <div class="row divider" ng-repeat="n in topMarketNews">
-                <a class="news" ng-href="/n/{{n.id}}">{{n.value.title}}</a>
+                <a class="news" ng-href="/n/{{n.id}}">{{n.value.title}}</a><span class="uploaded-date">{{n.value.uploadedDate}}</span>
               </div>
               <a class="more" href="/p/Markets?page=1">More</a>
             </div>
@@ -202,7 +202,7 @@
             <div class="module-title">Money</div>
             <div class="module-inner">
               <div class="row divider" ng-repeat="n in topMoneyNews">
-                <a class="news" ng-href="/n/{{n.id}}">{{n.value.title}}</a>
+                <a class="news" ng-href="/n/{{n.id}}">{{n.value.title}}</a><span class="uploaded-date">{{n.value.uploadedDate}}</span>
               </div>
               <a class="more" href="/p/Money?page=1">More</a>
             </div>
@@ -224,7 +224,7 @@
                   <img ng-src="http://cdee2b9f4d70bbbec792-dc1168873264971973cbf6ea4d0b36c7.r91.cf2.rackcdn.com/{{ ng.value.thumbnail }}"/>
                 </span>
                 <span>
-                  <p>{{ ng.value.title }}</p>
+                  <p>{{ ng.value.title }}</p><span class="uploaded-date">{{n.value.uploadedDate}}</span>
                 </span>
               </div>
               
@@ -299,8 +299,8 @@
       <div class="container">
         <summary>
           <span class="left">
-            Copyright &copy;  2013  Logo Name. All Rights Reserved |
-            <a href="#">My Account</a>.
+            Copyright &copy;  2013  Logo Name. All Rights Reserved.
+            
           </span>
           <span class="right">
             <span class="left margin5">Follow Us on:</span>

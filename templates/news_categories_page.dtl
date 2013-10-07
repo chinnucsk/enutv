@@ -153,7 +153,7 @@
             <div class="module-inner" ng-controller="NulTvNewsPagination">
               {% for t in titles %}
               <div class="row devider" >
-                <a href="/n/{{ t.id }}">{{ t.title }}</a>
+                <a href="/n/{{ t.id }}">{{ t.title }}</a><span class="uploaded-date">{{ t.uploaded_date }}</span>
               </div>
               {% endfor %}
               <div class="row">
@@ -230,6 +230,7 @@
                 </span>
                 <span class="width60">
                   <p><a ng-href="/v/{% verbatim %}{{lvid.value[0]}}{% endverbatim %}">{% verbatim %}{{lvid.value[1]}}{% endverbatim %}</a></p>
+                  <span class="uploaded-date"> {% verbatim %}{{lvid.value[5]}}{% endverbatim %} </span>
                 </span>
               </div>
               <a href="#" class="more">More Stories</a>
