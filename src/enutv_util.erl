@@ -46,7 +46,7 @@ videos_latest() ->
 
 videos_popular(Count) ->
 	%%http://localhost:5984/speakglobally/_design/popular_videos/_view/by_id_title_thumb_duration?descending=true&limit=10
-	Url = string:concat(?MODULE:video_db_url(), "_design/popular_videos/_view/by_id_title_thumb_duration?descending=true&limit="),
+	Url = string:concat(?MODULE:video_db_url(), "_design/get_videos/_view/by_id_title_thumbs_duration?descending=true&skip=15&limit="),
 	string:concat(Url, Count)
 .
 

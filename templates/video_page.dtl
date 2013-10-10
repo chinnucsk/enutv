@@ -82,7 +82,7 @@
                   <img ng-src="http://cdee2b9f4d70bbbec792-dc1168873264971973cbf6ea4d0b36c7.r91.cf2.rackcdn.com/{% verbatim %}{{ ng.value.thumbnail }}{% endverbatim %}"/>
                 </span>
                 <span>
-                  <p>{% verbatim %}{{ ng.value.title }}{% endverbatim %}</p>
+                  <p>{% verbatim %}{{ ng.value.title }}{% endverbatim %}</p><span class="uploaded-date">{% verbatim %}{{ ng.value.uploadedDate }}{% endverbatim %}</span>
                 </span>
               </div>
               

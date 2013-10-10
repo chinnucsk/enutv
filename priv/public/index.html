@@ -106,7 +106,7 @@
                     </a>
                   </span>
                   <span>
-                    <p>{{lvid.value[1]}} <span class="small">--Reuters</span></p>
+                    <p>{{lvid.value[1]}} <span class="small">--Reuters</span></p><span class="uploaded-date"> {{lvid.value[5]}}</span>
                   </span>
                 </div>
                 <a class="more" href="/videos?p=2">More Videos</a>
@@ -224,12 +224,12 @@
                   <img ng-src="http://cdee2b9f4d70bbbec792-dc1168873264971973cbf6ea4d0b36c7.r91.cf2.rackcdn.com/{{ ng.value.thumbnail }}"/>
                 </span>
                 <span>
-                  <p>{{ ng.value.title }}</p><span class="uploaded-date">{{n.value.uploadedDate}}</span>
+                  <p>{{ ng.value.title }}</p><span class="uploaded-date">{{ng.value.uploadedDate}}</span>
                 </span>
               </div>
               
               <div class="videorow">
-                <a href="#" class="more right">More Videos</a>
+                
               </div>
             </div>
           </div>
@@ -278,7 +278,7 @@
                   </a>
                 </span>
                 <span class="width60">
-                  <p><a ng-href="/v/{{lvid.value[0]}}">{{lvid.value[1]}}</a></p>
+                  <p><a ng-href="/v/{{lvid.value[0]}}">{{lvid.value[1]}}</a></p><span class="uploaded-date">{{lvid.value[5]}}</span>
                 </span>
               </div>
               <a href="#" class="more">More Stories</a>
