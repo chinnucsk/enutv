@@ -56,7 +56,28 @@
       <!--Header End-->
 
       <div class="banner">
-        <img src="/images/topbanner.jpg"/>
+        <!--/* Switch v3.8.5 - Nultv.com - Nultv.com - 728x90 - 728x90 */-->
+        <script type='text/javascript'><!--//<![CDATA[
+           document.MAX_ct0 ='INSERT_CLICK_MACRO';
+
+           var m3_u = (location.protocol=='https:'?'https://delivery.b.switchadhub.com/adserver/www/delivery/ajs.php':'http://delivery.b.switchadhub.com/adserver/www/delivery/ajs.php');
+           var m3_r = Math.floor(Math.random()*99999999999);
+           if (!document.MAX_used) document.MAX_used = ',';
+           document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+           document.write ("?zoneid=854&amp;charset=UTF-8");
+           document.write ('&amp;cb=' + m3_r);
+           if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+           document.write ('&amp;charset=UTF-8');
+           document.write ("&amp;loc=" + escape(window.location));
+           document.write ("&amp;tzo=" + (new Date().getTimezoneOffset()));
+           if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+           if (document.context) document.write ("&context=" + escape(document.context));
+           if ((typeof(document.MAX_ct0) != 'undefined') && (document.MAX_ct0.substring(0,4) == 'http')) {
+               document.write ("&amp;ct0=" + escape(document.MAX_ct0));
+           }
+           if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+           document.write ("'><\/scr"+"ipt>");
+        //]]>--></script><noscript><a href='http://delivery.b.switchadhub.com/adserver/www/delivery/ck.php?n=a1c8843c&amp;cb=INSERT_RANDOM_NUMBER' target='_blank'><img src='http://delivery.b.switchadhub.com/adserver/www/delivery/avw.php?zoneid=854&amp;charset=UTF-8&amp;cb=INSERT_RANDOM_NUMBER&amp;n=a1c8843c&amp;ct0=INSERT_CLICK_MACRO' border='0' alt='' /></a></noscript>
       </div>
       <!--banner End-->
 
@@ -88,7 +109,28 @@
 
         <aside class="width30 margin20_L">
           <div class="rt-tpadd">
-            <img src="/images/Rightside-add.jpg"/>
+            <!--/* Switch v3.8.5 - Nultv.com - Nultv.com - 300x250 - 300x250 */-->
+            <script type='text/javascript'><!--//<![CDATA[
+               document.MAX_ct0 ='INSERT_CLICK_MACRO';
+
+               var m3_u = (location.protocol=='https:'?'https://delivery.b.switchadhub.com/adserver/www/delivery/ajs.php':'http://delivery.b.switchadhub.com/adserver/www/delivery/ajs.php');
+               var m3_r = Math.floor(Math.random()*99999999999);
+               if (!document.MAX_used) document.MAX_used = ',';
+               document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+               document.write ("?zoneid=853&amp;charset=UTF-8");
+               document.write ('&amp;cb=' + m3_r);
+               if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+               document.write ('&amp;charset=UTF-8');
+               document.write ("&amp;loc=" + escape(window.location));
+               document.write ("&amp;tzo=" + (new Date().getTimezoneOffset()));
+               if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+               if (document.context) document.write ("&context=" + escape(document.context));
+               if ((typeof(document.MAX_ct0) != 'undefined') && (document.MAX_ct0.substring(0,4) == 'http')) {
+                   document.write ("&amp;ct0=" + escape(document.MAX_ct0));
+               }
+               if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+               document.write ("'><\/scr"+"ipt>");
+            //]]>--></script><noscript><a href='http://delivery.b.switchadhub.com/adserver/www/delivery/ck.php?n=a65c98dc&amp;cb=INSERT_RANDOM_NUMBER' target='_blank'><img src='http://delivery.b.switchadhub.com/adserver/www/delivery/avw.php?zoneid=853&amp;charset=UTF-8&amp;cb=INSERT_RANDOM_NUMBER&amp;n=a65c98dc&amp;ct0=INSERT_CLICK_MACRO' border='0' alt='' /></a></noscript>
           </div>
           <div class="module margin20_T">
             <div class="module-title">Top News</div>
@@ -110,7 +152,28 @@
           <!--Top News End-->
 
           <div class="rt-btadd margin20_T">
-            <img src="/images/Rightside-add2.jpg"/>
+            <!--/* Switch v3.8.5 - Nultv.com - Nultv.com - 300x250 - 300x250 */-->
+            <script type='text/javascript'><!--//<![CDATA[
+               document.MAX_ct0 ='INSERT_CLICK_MACRO';
+
+               var m3_u = (location.protocol=='https:'?'https://delivery.b.switchadhub.com/adserver/www/delivery/ajs.php':'http://delivery.b.switchadhub.com/adserver/www/delivery/ajs.php');
+               var m3_r = Math.floor(Math.random()*99999999999);
+               if (!document.MAX_used) document.MAX_used = ',';
+               document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+               document.write ("?zoneid=853&amp;charset=UTF-8");
+               document.write ('&amp;cb=' + m3_r);
+               if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+               document.write ('&amp;charset=UTF-8');
+               document.write ("&amp;loc=" + escape(window.location));
+               document.write ("&amp;tzo=" + (new Date().getTimezoneOffset()));
+               if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+               if (document.context) document.write ("&context=" + escape(document.context));
+               if ((typeof(document.MAX_ct0) != 'undefined') && (document.MAX_ct0.substring(0,4) == 'http')) {
+                   document.write ("&amp;ct0=" + escape(document.MAX_ct0));
+               }
+               if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+               document.write ("'><\/scr"+"ipt>");
+            //]]>--></script><noscript><a href='http://delivery.b.switchadhub.com/adserver/www/delivery/ck.php?n=a65c98dc&amp;cb=INSERT_RANDOM_NUMBER' target='_blank'><img src='http://delivery.b.switchadhub.com/adserver/www/delivery/avw.php?zoneid=853&amp;charset=UTF-8&amp;cb=INSERT_RANDOM_NUMBER&amp;n=a65c98dc&amp;ct0=INSERT_CLICK_MACRO' border='0' alt='' /></a></noscript>
           </div>
           <!-- <div class="module twitterposts">
             <div class="module-title">Twitter on the news</div>
@@ -165,7 +228,28 @@
       <!--Article End-->
 
       <div class="banner">
-        <img src="/images/Bottom-add.jpg"/>
+        <!--/* Switch v3.8.5 - Nultv.com - Nultv.com - 728x90 - 728x90 */-->
+        <script type='text/javascript'><!--//<![CDATA[
+           document.MAX_ct0 ='INSERT_CLICK_MACRO';
+
+           var m3_u = (location.protocol=='https:'?'https://delivery.b.switchadhub.com/adserver/www/delivery/ajs.php':'http://delivery.b.switchadhub.com/adserver/www/delivery/ajs.php');
+           var m3_r = Math.floor(Math.random()*99999999999);
+           if (!document.MAX_used) document.MAX_used = ',';
+           document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+           document.write ("?zoneid=854&amp;charset=UTF-8");
+           document.write ('&amp;cb=' + m3_r);
+           if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+           document.write ('&amp;charset=UTF-8');
+           document.write ("&amp;loc=" + escape(window.location));
+           document.write ("&amp;tzo=" + (new Date().getTimezoneOffset()));
+           if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+           if (document.context) document.write ("&context=" + escape(document.context));
+           if ((typeof(document.MAX_ct0) != 'undefined') && (document.MAX_ct0.substring(0,4) == 'http')) {
+               document.write ("&amp;ct0=" + escape(document.MAX_ct0));
+           }
+           if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+           document.write ("'><\/scr"+"ipt>");
+        //]]>--></script><noscript><a href='http://delivery.b.switchadhub.com/adserver/www/delivery/ck.php?n=a1c8843c&amp;cb=INSERT_RANDOM_NUMBER' target='_blank'><img src='http://delivery.b.switchadhub.com/adserver/www/delivery/avw.php?zoneid=854&amp;charset=UTF-8&amp;cb=INSERT_RANDOM_NUMBER&amp;n=a1c8843c&amp;ct0=INSERT_CLICK_MACRO' border='0' alt='' /></a></noscript>
       </div>
       <!--Bottom-add End-->
     </div>
