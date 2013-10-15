@@ -170,6 +170,9 @@ app.controller('NultvVideoPage', function ($scope, nultvHomePageService, $window
 		skipValue = parseInt(($scope.currentPageNumber - 1) * $scope.videosPerPage, 10);
 	}
 	$scope.noneFeaturedVideos = nultvHomePageService.getAllVideos($scope.videosPerPage, skipValue);
+	// Top 5 News items with Graphics
+	$scope.topNewsAndGraphics = nultvHomePageService.getTopNewsWithImages(5);
+
 
 	// Pagination plugin
 	$scope.bigCurrentPage = $scope.currentPageNumber;

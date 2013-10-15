@@ -140,7 +140,7 @@
                   <img ng-src="http://cdee2b9f4d70bbbec792-dc1168873264971973cbf6ea4d0b36c7.r91.cf2.rackcdn.com/{% verbatim %}{{ ng.value.thumbnail }}{% endverbatim %}"/>
                 </span>
                 <span>
-                  <p>{% verbatim %}{{ ng.value.title }}{% endverbatim %}</p><span class="uploaded-date">{% verbatim %}{{ ng.value.uploadedDate }}{% endvebatim %} </span>
+                  <p>{% verbatim %}{{ ng.value.title }}{% endverbatim %}</p><span class="uploaded-date">{% verbatim %}{{ ng.value.uploadedDate }}{% endverbatim %} </span>
                 </span>
               </div>
               
@@ -219,7 +219,7 @@
                   <span class="uploaded-date"> {% verbatim %}{{lvid.value[5]}}{% endverbatim %} </span>
                 </span>
               </div>
-              <a href="#" class="more">More Stories</a>
+              <a href="/videos?p=2" class="more">More Stories</a>
             </div>
           </div>
           <!--Popular Stories End-->

@@ -298,7 +298,7 @@
                   <span class="uploaded-date"> {% verbatim %}{{lvid.value[5]}}{% endverbatim %} </span>
                 </span>
               </div>
-              <a href="#" class="more">More Stories</a>
+              <a href="/videos?p=2" class="more">More Stories</a>
             </div>
           </div>
           <!--Popular Stories End-->
